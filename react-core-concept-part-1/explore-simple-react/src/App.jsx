@@ -4,26 +4,43 @@ function App() {
   return (
     <>
       <h1>React Core Concept</h1>
+      <Student></Student>
+      <Student></Student>
+      <Student></Student>
       <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Sports></Sports>
+      <Sports name="mintu" tec="js"></Sports>
+      <Sports name="sikder" tec="react"></Sports>
+   
     </>
   )
 }
 function Person () {
+  const personStyle = {
+      color: "red"
+  }
   const age = 22;
   return (
-    <p>I am Mintu {age}</p>
+    <p style={personStyle}>I am Mintu {age}</p>
+  )
+}
+
+function Student (props){
+  return(
+    <div className='student'>
+      <p>Name: {props.name}</p>
+      <p>Age: </p>
+    </div>
   )
 }
 
 
-function Sports () {
+function Sports (props) {
   return(
-    <div>
-      <h2>Football</h2>
-      <p>I Love play football</p>
+    <div style={{
+      border: "2px solid red"
+    }}>
+      <h2>Developer: {props.name}</h2>
+      <p>Techno: {props.tec}</p>
     </div>
   )
 }
