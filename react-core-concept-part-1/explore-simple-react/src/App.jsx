@@ -10,10 +10,22 @@ function App() {
       <Person></Person>
       <Sports name="mintu" tec="js"></Sports>
       <Sports name="sikder" tec="react"></Sports>
+      <Player name="rakib" run="33k"></Player>
+      <Player name="sakib" run="55k"></Player>
    
     </>
   )
 }
+
+function Player ({name,run}) {
+  return(
+    <div className='student'>
+      <p>Name: {name}</p>
+      <p>Run: {run}</p>
+    </div>
+  )
+}
+
 function Person () {
   const personStyle = {
       color: "red"
