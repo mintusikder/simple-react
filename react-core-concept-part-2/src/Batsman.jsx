@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Users from "./Users";
 
 const Batsman = () => {
   const [runs, setRuns] = useState(0);
@@ -12,6 +13,7 @@ const Batsman = () => {
   }
   return (
     <div>
+        <Users></Users>
       <h3>Player: Bangla Batsman</h3>
       {
         runs > 50 && <p>Your run 50</p>
