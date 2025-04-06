@@ -5,7 +5,6 @@ import { useState } from "react";
 function App() {
   const [bookMark, setBookMark] = useState([]);
   const [readTime, setReadTime] = useState(0);
-  console.log(readTime);
   const handelBookMark = (blog) => {
     const isAlreadyBookmarked = bookMark.find((mark) => mark.id === blog.id);
     if (isAlreadyBookmarked) {
@@ -16,9 +15,15 @@ function App() {
     setBookMark(newBookMark);
     alert("Added to bookmarks!");
   };
-  const handelMarkTime = (time) => {
+  const handelMarkTime = (time, id) => {
+    console.log(id);
     const readingTime = readTime + time;
     setReadTime(readingTime);
+    handelRemoveBookmark(id);
+  };
+  const handelRemoveBookmark = (id) => {
+    const remainingBookMark = bookMark.filter((mark) => mark.id !== id);
+    setBookMark(remainingBookMark);
   };
   return (
     <div className="max-w-7xl mx-auto">
@@ -34,7 +39,9 @@ function App() {
           <h2>Reading Time: {readTime}</h2>
           <h2>BookMark Time: {bookMark.length}</h2>
           {bookMark.map((mark) => (
-            <p key={mark.id}>{mark.title}</p>
+            <p className="bg-amber-100 p-3 m-3" key={mark.id}>
+              {mark.title}
+            </p>
           ))}
         </div>
       </div>
